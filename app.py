@@ -7,7 +7,8 @@ import pdfkit
 import time
 
 # Set your OpenAI Assistant ID here
-assistant_id = 'asst_Enter your assistant ID here'
+assistant_id = 'asst_Qpkt8pFl52xZhnl962AhmWbQ'
+
 
 # Initialize the OpenAI client (ensure to set your API key in the sidebar within the app)
 client = openai
@@ -23,21 +24,21 @@ if "thread_id" not in st.session_state:
     st.session_state.thread_id = None
 
 # Set up the Streamlit page with a title and icon
-st.set_page_config(page_title="ChatGPT-like Chat App", page_icon=":speech_balloon:")
+st.set_page_config(page_title="云退出", page_icon=":speech_balloon:")
 
 # Define functions for scraping, converting text to PDF, and uploading to OpenAI
-def scrape_website(url):
-    """Scrape text from a website URL."""
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    return soup.get_text()
+# def scrape_website(url):
+#    """Scrape text from a website URL."""
+#    response = requests.get(url)
+#    soup = BeautifulSoup(response.text, "html.parser")
+#    return soup.get_text()
 
-def text_to_pdf(text, filename):
-    """Convert text content to a PDF file."""
-    path_wkhtmltopdf = '/usr/local/bin/wkhtmltopdf'
-    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
-    pdfkit.from_string(text, filename, configuration=config)
-    return filename
+# def text_to_pdf(text, filename):
+#    """Convert text content to a PDF file."""
+#    path_wkhtmltopdf = '/usr/local/bin/wkhtmltopdf'
+#    config = pdfkit.configuration(wkhtmltopdf=path_wkhtmltopdf)
+#    pdfkit.from_string(text, filename, configuration=config)
+#    return filename
 
 def upload_to_openai(filepath):
     """Upload a file to OpenAI and return its file ID."""
@@ -47,21 +48,21 @@ def upload_to_openai(filepath):
 
 # Create a sidebar for API key configuration and additional features
 st.sidebar.header("Configuration")
-api_key = st.sidebar.text_input("Enter your OpenAI API key", type="password")
+api_key = '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'
 if api_key:
     openai.api_key = api_key
 
 # Additional features in the sidebar for web scraping and file uploading
 st.sidebar.header("Additional Features")
-website_url = st.sidebar.text_input("Enter a website URL to scrape and organize into a PDF", key="website_url")
+# website_url = st.sidebar.text_input("Enter a website URL to scrape and organize into a PDF", key="website_url")
 
 # Button to scrape a website, convert to PDF, and upload to OpenAI
-if st.sidebar.button("Scrape and Upload"):
+# if st.sidebar.button("Scrape and Upload"):
     # Scrape, convert, and upload process
-    scraped_text = scrape_website(website_url)
-    pdf_path = text_to_pdf(scraped_text, "scraped_content.pdf")
-    file_id = upload_to_openai(pdf_path)
-    st.session_state.file_id_list.append(file_id)
+    # scraped_text = scrape_website(website_url)
+    # pdf_path = text_to_pdf(scraped_text, "scraped_content.pdf")
+    # file_id = upload_to_openai(pdf_path)
+    # st.session_state.file_id_list.append(file_id)
     #st.sidebar.write(f"File ID: {file_id}")
 
 # Sidebar option for users to upload their own files
@@ -129,8 +130,8 @@ def process_message_with_citations(message):
 
 
 # Main chat interface setup
-st.title("OpenAI Assistants API Chat")
-st.write("This is a simple chat application that uses OpenAI's API to generate responses.")
+st.title("云退出AI助理")
+st.write("投资者的专业AI顾问")
 
 # Only show the chat interface if the chat has been started
 if st.session_state.start_chat:
