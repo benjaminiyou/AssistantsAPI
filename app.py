@@ -7,7 +7,7 @@ import pdfkit
 import time
 
 # Set your OpenAI Assistant ID here
-assistant_id = 'asst_Qpkt8pFl52xZhnl962AhmWbQ'
+assistant_id = 'asst_Enter your assistant ID here'
 
 # Initialize the OpenAI client (ensure to set your API key in the sidebar within the app)
 client = openai
@@ -23,7 +23,7 @@ if "thread_id" not in st.session_state:
     st.session_state.thread_id = None
 
 # Set up the Streamlit page with a title and icon
-st.set_page_config(page_title="云退出", page_icon=":speech_balloon:")
+st.set_page_config(page_title="ChatGPT-like Chat App", page_icon=":speech_balloon:")
 
 # Define functions for scraping, converting text to PDF, and uploading to OpenAI
 def scrape_website(url):
@@ -129,8 +129,8 @@ def process_message_with_citations(message):
 
 
 # Main chat interface setup
-st.title("云退出AI助理")
-st.write("投资者的专业AI顾问")
+st.title("OpenAI Assistants API Chat")
+st.write("This is a simple chat application that uses OpenAI's API to generate responses.")
 
 # Only show the chat interface if the chat has been started
 if st.session_state.start_chat:
